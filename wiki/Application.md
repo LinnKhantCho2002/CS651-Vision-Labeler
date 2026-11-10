@@ -21,7 +21,7 @@ The default process-wide allowance is 20 admitted upload attempts per 10 minutes
 ## Access
 
 - Live application: [Vision Labeler](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com)
-- Group repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (private; reviewer access must be arranged)
+- Group repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (publicly readable)
 - Local use: install Node.js 24, run `npm ci`, then `npm run demo` for fixture output or configure ADC and run `npm start` for real API calls.
 
 **Offline mode warning:** fixture labels illustrate the interface only. They are not computed from the uploaded image.

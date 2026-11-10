@@ -2,46 +2,47 @@
 
 ## Evidence status
 
-**Real App Engine and Vision HTTP checks completed on 2026-11-10.** The live app is https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com. Two synthetic images produced distinct real labels; see docs/DEPLOYED.md in the source package. Browser screenshot evidence remains to be added. Local offline screenshots must be captioned “offline demo, fixture labels”; they cannot prove Google Cloud Vision or App Engine works.
+Real App Engine and Google Cloud Vision HTTP checks completed on **2026-11-10 at 18:54 UTC**, using deployed version `vision-20261110b`. [Open the live app](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com). Two synthetic, non-sensitive images produced distinct real labels. These results were verified through HTTP requests, not the offline fixture detector.
 
-## Demonstration script
+- Landscape: Slope (79.3%), Graphics (64.4%) and Summit (56.7%).
+- Apple: Fruit (98.8%), Produce (98.3%), Natural foods (97.9%), Red (97.8%) and Apple (96.8%), among ten labels.
+- Missing image or consent returned 400, animated input returned 400, incorrect MIME or corruption returned 415, oversize input returned 413, and cross-origin submission returned 403.
+- `/health` returned 200 and reported real Vision mode. This endpoint alone is not evidence that API calls succeed; the two successful image analyses supply that evidence.
 
-1. Show the deployed HTTPS address and describe the application.
+## Reproducible source evidence
+
+These links are pinned to the published source commit containing the original deployment evidence:
+
+- [Full deployment record](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/DEPLOYED.md)
+- [Machine-readable live HTTP check log](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/live/live-checks.json)
+- [Landscape response HTML](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/live/sample-landscape-result.html)
+- [Apple response HTML](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/live/test-apple-result.html)
+- [Synthetic landscape input](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/sample-landscape.png)
+- [Synthetic apple input](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/live/test-apple.png)
+- [Repeatable HTTP test script](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/scripts/live-smoke.py), which makes real API requests and consumes quota.
+
+### Test inputs, not screenshots
+
+![Synthetic landscape used for the live HTTP test](https://raw.githubusercontent.com/LinnKhantCho2002/CS651-Vision-Labeler/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/sample-landscape.png)
+
+![Synthetic apple used for the live HTTP test](https://raw.githubusercontent.com/LinnKhantCho2002/CS651-Vision-Labeler/4dc38a9e03bc92f1ff56a9f2689d675b75bb2218/docs/evidence/live/test-apple.png)
+
+These are the synthetic input images, not screenshots of the deployed application or proof by themselves of API success.
+
+## Live demonstration script
+
+1. Open the deployed HTTPS address and explain the image-labeling goal.
 2. Explain that submitting a real-mode image sends it to Google Cloud Vision.
-3. Select a permitted, non-sensitive still JPEG/PNG/WebP under 5 MiB and at most 25 megapixels; check the processing consent box.
-4. Submit and explain several returned labels and confidence values.
-5. Repeat with a visually different image and discuss plausible differences or mistakes.
-6. Show rejection of a non-image and an oversized file. Explain why validation runs on the server.
-7. Briefly show the vision-labeler App Engine service/version and the repository, without exposing secrets, billing details or private identifiers.
+3. Select a permitted, non-sensitive still JPEG, PNG or WebP under 5 MiB and at most 25 megapixels, then check the processing consent box.
+4. Submit and explain the returned labels and confidence scores. Scores are predictions, not guarantees.
+5. Repeat with a visually different permitted image and discuss plausible differences or mistakes.
+6. Show rejection of an unsupported/corrupt or oversized input, then explain server-side validation.
+7. Show this repository, the wiki, and deployment evidence without exposing credentials or billing details.
 
-## Local offline screenshots
+## Browser evidence and remaining work
 
-**Not captured in this preparation environment.** Chromium could not start because the environment refused its required socket operation. The optional browser script in `scripts/browser-smoke.py` can create `docs/evidence/demo-before.png`, `demo-after.png`, and `demo-mobile.png` on a compatible local machine. If captured using that script, these show **offline demo mode with simulated fixtures, not real Vision inference or cloud deployment**. Do not publish the image templates until the files actually exist.
+The deployed form displayed in Chrome on the Mac. The native file picker left Open disabled for a PNG; the selection was canceled and the browser upload is not counted as passed. A later attempt on 2026-11-10 reproduced this limitation. No deployed result screenshots, mobile-browser verification, or load/memory stress tests are claimed.
 
-GitHub wikis are separate repositories: `../docs/evidence/...` does not reliably refer to the main repository. Replace `OWNER`, `REPOSITORY` and `COMMIT_SHA` in the templates below with verified values after publication, then paste the image markup outside the example code block. Pinning to the tested commit keeps the evidence reproducible.
+Still needed: genuine deployed home/result screenshots, a second browser result and a validation-error screenshot. Capture them from the real service, label their date and source image, and do not substitute offline output for real Vision evidence.
 
-```markdown
-![Offline demo upload form; no Google API call](https://raw.githubusercontent.com/OWNER/REPOSITORY/COMMIT_SHA/docs/evidence/demo-before.png)
-![Offline demo results; simulated labels only](https://raw.githubusercontent.com/OWNER/REPOSITORY/COMMIT_SHA/docs/evidence/demo-after.png)
-```
-
-These are URL templates, not published or verified image links. For a private repository, verify that the chosen image location works for reviewers; upload the images to the wiki through an authorized workflow if needed.
-
-## Real cloud screenshots to add
-
-- **TODO: deployed home page screenshot**, with the real URL visible.
-- **TODO: real successful analysis screenshot**, captioned with test date and permitted source image description.
-- **TODO: second image result screenshot**, showing actual API output.
-- **TODO: validation error screenshot**.
-- **TODO: App Engine service/version evidence**, redact private account information.
-
-Store screenshot assets in a location accessible to course reviewers and embed the verified links here. Never invent screenshots or API output.
-
-## Verification record
-
-- Verified: 2026-11-10 at 18:54 UTC using automated HTTP checks.
-- Deployed version: vision-20261110b. Source repository: https://github.com/LinnKhantCho2002/CS651-Vision-Labeler (private). See the source commit and Actions run for the publication checks.
-- Actual URL: https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com
-- Inputs: two synthetic fixtures, landscape and apple, created for testing; no private photographs.
-- Outputs: landscape Slope/Graphics/Summit; apple Fruit/Produce/Apple among ten labels. Validation responses 400/403/413/415 matched expected errors.
-- Real API verified by: deployed demo mode false, runtime ADC identity, distinct actual labels from two images, and /health mode vision.
+For an offline walkthrough, run `npm run demo`. Its fixture labels do not depend on image contents. Any screenshots from that mode must be labeled “offline demo, fixture labels.” See the [optional browser test instructions](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/main/docs/VERIFICATION.md).

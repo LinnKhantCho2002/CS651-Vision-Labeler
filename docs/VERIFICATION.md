@@ -1,6 +1,6 @@
 # Verification report
 
-Updated on **2026-11-10** after real deployment. See [DEPLOYED.md](DEPLOYED.md) and [live HTTP checks](evidence/live/live-checks.json). Source publication is recorded below. This is not a claim of actual wiki publication, collaborator access or course submission.
+Updated on **2026-11-10** after real deployment. See [DEPLOYED.md](DEPLOYED.md) and [live HTTP checks](evidence/live/live-checks.json). Source and actual wiki publication are recorded below. This is not a claim of collaborator write access or course submission.
 
 ## Initial local checks passed
 
@@ -18,7 +18,7 @@ Raw output: [tests](evidence/test-results.txt), [production dependency audit](ev
 - **Browser visual checks and screenshots:** Chromium failed to start because this execution environment refused its required local socket operation, including a retry with the permitted execution setting. No screenshots were created and browser checks are not counted as passed.
 - **Real Vision request:** passed on two synthetic images in the deployed service. See the deployment record.
 - **App Engine deployment and cloud smoke test:** passed. Final version vision-20261110b uses the separate vision-labeler service; /health and live validation checks passed.
-- **GitHub source repository:** published privately at https://github.com/LinnKhantCho2002/CS651-Vision-Labeler. Actual wiki publication and collaborator/reviewer access remain unfinished.
+- **GitHub source and wiki:** published publicly at https://github.com/LinnKhantCho2002/CS651-Vision-Labeler and https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki. Both are readable without an invitation. Group collaborator write access remains unfinished.
 - **Canvas submission:** not performed.
 
 ## Run the optional browser checks locally
@@ -39,4 +39,8 @@ The supplied `sample-landscape.png` is a synthetic landscape created for this pr
 
 ## Finish the assignment
 
-Review the real deployment/API record, capture actual before/after screenshots, fill remaining wiki TODOs, review as a group, initialize/publish the actual wiki and arrange repository access. Submit the repository URL once per group in Canvas. Keep the honest remaining-issues section even if some limitations persist.
+Review the real deployment/API record, capture actual before/after screenshots, fill remaining wiki TODOs, review as a group and arrange collaborator write access. Submit the repository URL once per group in Canvas. Keep the honest remaining-issues section even if some limitations persist.
+
+## Publication re-run
+
+On 2026-11-10, `npm run check` passed all 37 tests under Node.js 24.22.2 before source publication. The production audit found zero known vulnerabilities. GitHub Actions also passed. See [publication details](PUBLICATION.md) and [re-run output](evidence/repository-checks.txt).

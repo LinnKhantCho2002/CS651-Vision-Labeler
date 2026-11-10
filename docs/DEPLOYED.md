@@ -40,4 +40,4 @@ Chrome on the connected Mac displayed the live upload form. Its native file pick
 
 This is a classroom deployment, not a production-hardened uploader. Images are processed in memory and sent to Google Cloud Vision. The application remains publicly reachable. One concurrent analysis, 20 admitted attempts per ten minutes per process, and one F1 instance reduce exposure but are not a hard spending limit. The existing project budget is alert-only. Review usage and arrange cleanup after grading.
 
-Source is published privately at https://github.com/LinnKhantCho2002/CS651-Vision-Labeler. Actual wiki publication, group/member details, reviewer access and Canvas submission remain unfinished.
+Source and the actual wiki are published publicly at https://github.com/LinnKhantCho2002/CS651-Vision-Labeler and https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki. Group/member details, collaborator write access, browser screenshots and Canvas submission remain unfinished.

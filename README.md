@@ -2,7 +2,7 @@
 
 A small Node.js/Express web application for uploading an image and displaying Google Cloud Vision labels with confidence scores. Deployment target: Google App Engine **standard** environment, Node.js 24.
 
-**Status:** deployed and verified with real Google Cloud Vision on 2026-11-10. [Open the live application](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com) and read the [deployment record](docs/DEPLOYED.md). Source is published in a private [GitHub repository](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler). Actual wiki publication, group/reviewer access, group details, screenshots and Canvas submission remain unfinished. Offline demo mode still uses clearly marked fixtures.
+**Status:** deployed and verified with real Google Cloud Vision on 2026-11-10. [Open the live application](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com), [read the published wiki](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki), and see the [deployment record](docs/DEPLOYED.md). Source and wiki are public. Group details, collaborator write access, browser screenshots and Canvas submission remain unfinished. Offline demo mode uses clearly marked fixtures.
 
 ## Run locally
 
@@ -38,11 +38,11 @@ Open the local address printed by the server (normally http://localhost:8080). D
 
 - Group name/number: **TODO: supply**
 - Members and contributions: **TODO: supply**
-- Shared GitHub repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (private)
-- Shared GitHub wiki: Blocked by the current GitHub plan: private wikis require GitHub Pro. Reviewed page sources are in `wiki/`; see [publication details](docs/PUBLICATION.md).
+- Shared GitHub repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (public)
+- Shared GitHub wiki: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki)
 - Deployed application: [Vision Labeler](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com)
 
-All members should work from the same GitHub repository and wiki. Submit the repository URL **once per group in Canvas**. Files under `wiki/` are page drafts; putting them in the main repository does not automatically publish a GitHub wiki.
+All members should work from the same GitHub repository and wiki. Submit the repository URL **once per group in Canvas**. Files under `wiki/` are source copies of the [published wiki pages](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/wiki). The actual wiki is a separate Git repository; update both when editing documentation.
 
 ## Cost and security warning
 

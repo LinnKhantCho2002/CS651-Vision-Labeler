@@ -3,11 +3,12 @@
 ## Group and publication
 
 - [ ] Record group number/name, every member and contributions.
-- [ ] Use one shared GitHub repository and wiki for the group.
-- [x] Publish source, lockfile, app.yaml, tests and instructions with no credentials or private test images. Repository: https://github.com/LinnKhantCho2002/CS651-Vision-Labeler (private).
-- [ ] Enable/publish actual GitHub wiki pages from `wiki/`; verify navigation and assets. The folder in the main repository is not automatically a wiki.
-- [ ] Check every member and course reviewer has the intended access. Do not assume a private repository or wiki is readable by the instructor.
-- [ ] Fill in verified repository, wiki and application URLs throughout the documentation.
+- [x] Publish one public GitHub repository and actual wiki for the group.
+- [x] Publish source, lockfile, app.yaml, tests and instructions with no credentials or private test images. Repository: https://github.com/LinnKhantCho2002/CS651-Vision-Labeler (public).
+- [x] Publish actual GitHub wiki pages and verify navigation and evidence links.
+- [x] Enable public read access for course reviewers.
+- [ ] Arrange group-member write access after their GitHub usernames are supplied.
+- [x] Fill in verified repository, wiki and application URLs throughout the documentation.
 
 ## Application and evidence
 
@@ -29,4 +30,4 @@
 - [ ] Open the submitted URL as a reviewer would and verify that the wiki and live app are discoverable.
 - [ ] Record the Canvas submission confirmation for the group.
 
-Deployment and real Vision checks are recorded in DEPLOYED.md. Source publication is complete. Actual GitHub wiki publication, reviewer access and Canvas submission are not claimed. Unchecked items remain for the group.
+Deployment and real Vision checks are recorded in DEPLOYED.md. Source publication is complete. Actual GitHub wiki publication and public read access are complete. Group write access and Canvas submission are not claimed. Unchecked items remain for the group.
