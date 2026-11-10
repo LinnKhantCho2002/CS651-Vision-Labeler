@@ -9,7 +9,7 @@ This project demonstrates a web upload interface backed by Google Cloud Vision l
 - Group: **TODO: name/number**
 - Members: **TODO: names and contributions**
 - Repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (private)
-- Wiki: Pending initialization and publication. This file is a wiki page source, not proof of a published wiki.
+- Wiki: Blocked by the current GitHub plan: GitHub requires Pro or public repository visibility. This file is a wiki page source, not proof of a published wiki.
 - Application: [Vision Labeler](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com)
 
 ## Pages

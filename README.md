@@ -39,7 +39,7 @@ Open the local address printed by the server (normally http://localhost:8080). D
 - Group name/number: **TODO: supply**
 - Members and contributions: **TODO: supply**
 - Shared GitHub repository: [https://github.com/LinnKhantCho2002/CS651-Vision-Labeler](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler) (private)
-- Shared GitHub wiki: Pending first-page initialization and publication; reviewed page sources are in `wiki/`.
+- Shared GitHub wiki: Blocked by the current GitHub plan: private wikis require GitHub Pro. Reviewed page sources are in `wiki/`; see [publication details](docs/PUBLICATION.md).
 - Deployed application: [Vision Labeler](https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com)
 
 All members should work from the same GitHub repository and wiki. Submit the repository URL **once per group in Canvas**. Files under `wiki/` are page drafts; putting them in the main repository does not automatically publish a GitHub wiki.
