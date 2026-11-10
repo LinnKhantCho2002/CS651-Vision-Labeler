@@ -1,0 +1,50 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cs651-vision-labeler@1.0.0 check
+> node --check src/app.js && node --check src/vision.js && node --check src/server.js && node --check public/app.js && node --test
+
+✔ GET / returns an accessible HTML multipart form and privacy notice (36.99141ms)
+✔ health check identifies mode without calling Vision (12.107913ms)
+✔ PNG upload is normalized to JPEG and renders sorted scores (19.263441ms)
+✔ accepts image/jpeg (9.175234ms)
+✔ accepts image/webp (7.862553ms)
+✔ large-dimension image is resized before the API request (15.637963ms)
+✔ image metadata is stripped during re-encoding (12.665822ms)
+✔ escapes labels and filenames, preventing HTML injection (6.33777ms)
+✔ no labels produces a useful empty state (6.114197ms)
+✔ missing image is rejected (6.323191ms)
+✔ missing consent is rejected without calling Vision (3.793561ms)
+✔ invalid MIME is rejected (3.852934ms)
+✔ spoofed PNG MIME and corrupt data are rejected (8.610222ms)
+✔ format and MIME must agree (4.059025ms)
+✔ image over the pixel limit is rejected (254.795678ms)
+✔ file over 5 MiB is rejected before calling Vision (19.693845ms)
+✔ extra upload files and unexpected fields are rejected (13.127654ms)
+✔ non-multipart and malformed uploads are rejected (8.513513ms)
+✔ cross-origin submission is rejected before parsing an upload (4.57475ms)
+✔ same-origin submission is accepted (7.286863ms)
+✔ invalid origin is rejected (3.122633ms)
+✔ Vision failures are safely reported without leaking internals (13.494091ms)
+✔ Vision deadline produces an actionable timeout page (7.146699ms)
+✔ unexpected errors do not leak their messages (7.767362ms)
+✔ global rate limit has Retry-After and resets after the window (14.887063ms)
+✔ concurrency limit blocks excess work and releases after completion (14.929171ms)
+✔ validation errors release the concurrency slot (14.85457ms)
+✔ static assets work and unknown routes do not expose source files (13.650491ms)
+✔ demo mode is clearly labeled in both pages (6.047459ms)
+✔ label cleanup discards invalid scores and descriptions (0.430795ms)
+✔ all HTML-sensitive characters are escaped (0.181511ms)
+✔ invalid configuration fails early (0.50156ms)
+✔ Vision adapter requests exactly label detection with a deadline (0.781683ms)
+✔ Vision adapter handles per-image errors and missing labels (0.239549ms)
+✔ Vision adapter hides RPC details and distinguishes deadline errors (0.18483ms)
+✔ animated WebP is rejected (6.681251ms)
+✔ truncated image with a valid signature is rejected (4.739784ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1347.760369

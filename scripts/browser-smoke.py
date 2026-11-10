@@ -1,0 +1,61 @@
+import json, pathlib, os
+from playwright.sync_api import sync_playwright
+root=pathlib.Path(__file__).resolve().parent.parent
+results=[]
+with sync_playwright() as p:
+ browser=p.chromium.launch(executable_path=os.environ.get('CHROMIUM_EXECUTABLE'),headless=True)
+ page=browser.new_page(viewport={'width':1280,'height':1000},device_scale_factor=1)
+ errors=[]
+ page.on('pageerror',lambda e:errors.append(str(e)))
+ page.goto('http://127.0.0.1:8080/',wait_until='networkidle')
+ page.locator('#image').set_input_files(str(root/'docs/evidence/sample-landscape.png'))
+ page.locator('[name=consent]').check()
+ assert page.locator('#preview').is_visible()
+ assert page.locator('#preview-image').evaluate('(img)=>img.naturalWidth')==960
+ page.screenshot(path=str(root/'docs/evidence/demo-before.png'),full_page=True)
+ results.append('Desktop upload form, local image preview, consent checkbox: PASS')
+ page.locator('#analyze-button').click()
+ page.wait_for_url('**/analyze')
+ assert page.locator('tbody tr').count()==4
+ assert 'SIMULATED RESULTS' in page.inner_text('body')
+ page.screenshot(path=str(root/'docs/evidence/demo-after.png'),full_page=True)
+ results.append('Normal HTML POST navigation and four clearly simulated labels: PASS')
+ page.go_back(wait_until='networkidle')
+ assert page.locator('#analyze-button').is_enabled()
+ results.append('Back navigation restores usable submit button: PASS')
+ page.goto('http://127.0.0.1:8080/')
+ page.locator('#image').set_input_files({'name':'oversize.png','mimeType':'image/png','buffer':b'0'*(5*1024*1024+1)})
+ assert page.locator('#client-error').is_visible()
+ assert not page.locator('#image').evaluate('(input)=>input.checkValidity()')
+ page.locator('#image').set_input_files(str(root/'docs/evidence/sample-landscape.png'))
+ assert page.locator('#image').evaluate('(input)=>input.checkValidity()')
+ assert not page.locator('#client-error').is_visible()
+ results.append('Oversized file client validation and recovery after replacement: PASS')
+ page.locator('#image').set_input_files([])
+ assert not page.locator('#preview').is_visible()
+ results.append('Clearing selection clears preview: PASS')
+ mobile=browser.new_page(viewport={'width':390,'height':844},device_scale_factor=1)
+ mobile.goto('http://127.0.0.1:8080/')
+ assert mobile.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+ mobile.screenshot(path=str(root/'docs/evidence/demo-mobile.png'),full_page=True)
+ results.append('Mobile 390px layout has no horizontal page overflow: PASS')
+ mobile.locator('#image').set_input_files(str(root/'docs/evidence/sample-landscape.png'))
+ mobile.locator('[name=consent]').check()
+ mobile.locator('#analyze-button').click()
+ mobile.wait_for_url('**/analyze')
+ assert mobile.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+ results.append('Mobile results layout has no horizontal page overflow: PASS')
+ nojs=browser.new_page(java_script_enabled=False)
+ nojs.goto('http://127.0.0.1:8080/')
+ nojs.locator('#image').set_input_files(str(root/'docs/evidence/sample-landscape.png'))
+ nojs.locator('[name=consent]').check()
+ nojs.locator('#analyze-button').click()
+ nojs.wait_for_url('**/analyze')
+ assert nojs.locator('tbody tr').count()==4
+ results.append('Upload and HTML results function with JavaScript disabled: PASS')
+ assert errors==[],errors
+ results.append('Browser JavaScript runtime errors: NONE')
+ browser.close()
+text='Browser verification: local offline demo only. No Google Cloud request was made.\n\n'+'\n'.join(results)+'\n'
+(root/'docs/evidence/browser-checks.txt').write_text(text)
+print(text)

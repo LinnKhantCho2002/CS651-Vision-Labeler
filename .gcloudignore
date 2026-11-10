@@ -1,0 +1,17 @@
+.gcloudignore
+.git
+.github
+node_modules/
+test/
+docs/
+wiki/
+.env
+.env.*
+*.log
+coverage/
+*credentials*.json
+*service-account*.json
+*-key.json
+
+.venv/
+__pycache__/

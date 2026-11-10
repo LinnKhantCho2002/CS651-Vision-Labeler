@@ -1,0 +1,109 @@
+{
+  "verified_at_utc": "2026-11-10T18:54:55.287564+00:00",
+  "url": "https://vision-labeler-dot-cs651-n33-lcho-20261014.uw.r.appspot.com",
+  "version": "vision-20261110b",
+  "checks": [
+    {
+      "test": "Health in real Vision mode",
+      "status": 200,
+      "body": "{\"status\":\"ok\",\"mode\":\"vision\"}"
+    },
+    {
+      "test": "HTTPS home form",
+      "status": 200
+    },
+    {
+      "test": "Real Vision: sample-landscape.png",
+      "status": 200,
+      "table_cells": [
+        "01",
+        "79.3%  79.3%",
+        "02",
+        "64.4%  64.4%",
+        "03",
+        "56.7%  56.7%"
+      ],
+      "labels": [
+        "Slope",
+        "Graphics",
+        "Summit"
+      ]
+    },
+    {
+      "test": "Real Vision: test-apple.png",
+      "status": 200,
+      "table_cells": [
+        "01",
+        "98.8%  98.8%",
+        "02",
+        "98.3%  98.3%",
+        "03",
+        "97.9%  97.9%",
+        "04",
+        "97.8%  97.8%",
+        "05",
+        "96.8%  96.8%",
+        "06",
+        "90.8%  90.8%",
+        "07",
+        "79.3%  79.3%",
+        "08",
+        "78.4%  78.4%",
+        "09",
+        "72.2%  72.2%",
+        "10",
+        "70.5%  70.5%"
+      ],
+      "labels": [
+        "Fruit",
+        "Produce",
+        "Natural foods",
+        "Red",
+        "Apple",
+        "Food",
+        "Clip art",
+        "Seedless fruit",
+        "McIntosh red",
+        "Superfood"
+      ]
+    },
+    {
+      "test": "missing-image",
+      "status": 400,
+      "expected": 400
+    },
+    {
+      "test": "missing-consent",
+      "status": 400,
+      "expected": 400
+    },
+    {
+      "test": "wrong-mime",
+      "status": 415,
+      "expected": 415
+    },
+    {
+      "test": "corrupt-image",
+      "status": 415,
+      "expected": 415
+    },
+    {
+      "test": "animated-webp",
+      "status": 400,
+      "expected": 400
+    },
+    {
+      "test": "oversize",
+      "status": 413,
+      "expected": 413
+    },
+    {
+      "test": "cross-origin rejected",
+      "status": 403
+    },
+    {
+      "test": "server source is not public",
+      "status": 404
+    }
+  ]
+}
