@@ -24,6 +24,11 @@ test('GET / returns an accessible HTML multipart form and privacy notice', async
   assert.equal(res.headers['cache-control'], 'no-store');
 });
 
+test('form referrer policy preserves a same-origin POST origin', async () => {
+  const res = await request(makeApp()).get('/').expect(200);
+  assert.equal(res.headers['referrer-policy'], 'same-origin');
+});
+
 test('health check identifies mode without calling Vision', async () => {
   const res = await request(makeApp({ demo: true, detectLabels: () => { throw new Error('Should not call'); } })).get('/health').expect(200);
   assert.deepEqual(res.body, { status: 'ok', mode: 'demo' });

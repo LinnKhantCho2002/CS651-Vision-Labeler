@@ -58,7 +58,9 @@ export function createApp({ detectLabels, demo = false, maxRequests = 20,
   }
   const app = express();
   app.disable('x-powered-by');
-  app.use(helmet({ contentSecurityPolicy: { directives: {
+  // Keep same-origin form POSTs from becoming Origin: null under no-referrer.
+  // Cross-origin requests still disclose no referrer and remain blocked by guard.
+  app.use(helmet({ referrerPolicy: { policy: 'same-origin' }, contentSecurityPolicy: { directives: {
     defaultSrc: ["'self'"], scriptSrc: ["'self'"], styleSrc: ["'self'"],
     imgSrc: ["'self'", 'blob:'], formAction: ["'self'"],
     objectSrc: ["'none'"], frameAncestors: ["'none'"],
