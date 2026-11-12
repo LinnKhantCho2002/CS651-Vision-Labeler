@@ -1,3 +1,7 @@
+## Latest verification: 2026-11-12
+
+On 2026-11-12, the deployed service `vision-labeler`, version `vision-20261112a` (source `f56c928`), passed genuine desktop Chromium form uploads using two synthetic, non-sensitive images. These were real Google Cloud Vision calls, not offline fixtures. The browser-origin defect was fixed using `Referrer-Policy: same-origin`; invalid and cross-origin requests remain rejected. All 38 automated tests and GitHub Actions passed. See [before/after screenshots](../wiki/Demonstration.md). Browser upload and screenshots are now complete; mobile, load and worst-case memory testing remain unverified. Earlier entries below describe prior attempts and are retained as history.
+
 # Verification report
 
 Updated on **2026-11-10** after real deployment. See [DEPLOYED.md](DEPLOYED.md) and [live HTTP checks](evidence/live/live-checks.json). Source and actual wiki publication are recorded below. This is not a claim of collaborator write access or course submission.
@@ -39,7 +43,7 @@ The supplied `sample-landscape.png` is a synthetic landscape created for this pr
 
 ## Finish the assignment
 
-Review the real deployment/API record, capture actual before/after screenshots, fill remaining wiki TODOs, review as a group and arrange collaborator write access. Submit the repository URL once per group in Canvas. Keep the honest remaining-issues section even if some limitations persist.
+Review the real deployment/API record and published before/after screenshots, fill remaining group TODOs, review as a group and arrange collaborator write access. Submit the repository URL once per group in Canvas. Keep the honest remaining-issues section even if some limitations persist.
 
 ## Publication re-run
 

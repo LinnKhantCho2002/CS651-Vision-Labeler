@@ -1,3 +1,9 @@
+## Latest verification: 2026-11-12
+
+On 2026-11-12, the deployed service `vision-labeler`, version `vision-20261112a` (source `f56c928`), passed genuine desktop Chromium form uploads using two synthetic, non-sensitive images. These were real Google Cloud Vision calls, not offline fixtures. The browser-origin defect was fixed using `Referrer-Policy: same-origin`; invalid and cross-origin requests remain rejected. All 38 automated tests and GitHub Actions passed. Traffic is 100% on `vision-20261112a`; the earlier version has 0%. Other coursework services were not modified. See [browser screenshots](../wiki/Demonstration.md).
+
+The record below is historical (2026-11-10), including limitations subsequently resolved.
+
 # Verified App Engine deployment
 
 Verified on 2026-11-10 at 18:54 UTC.

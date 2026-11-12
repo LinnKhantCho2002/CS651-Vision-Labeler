@@ -29,7 +29,7 @@ Open the local address printed by the server (normally http://localhost:8080). D
 
 ## Project guide
 
-- [Verification report](docs/VERIFICATION.md): 37 automated checks passed; real cloud checks passed. Browser upload/screenshots remain incomplete.
+- [Verification report](docs/VERIFICATION.md): 38 automated checks passed; real cloud and two-image browser uploads passed, with genuine screenshots.
 - [Deploy and verify](docs/DEPLOYMENT.md)
 - [Submission checklist](docs/SUBMISSION-CHECKLIST.md)
 - [Wiki home](wiki/Home.md), [Application](wiki/Application.md), [Demonstration](wiki/Demonstration.md), [Explanation](wiki/Explanation.md), [State of the System](wiki/State-of-the-System.md)

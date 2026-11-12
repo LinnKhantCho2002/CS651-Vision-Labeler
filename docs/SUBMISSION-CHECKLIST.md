@@ -12,7 +12,7 @@
 
 ## Application and evidence
 
-- [x] Run `npm ci` and `npm test` on Node.js 24; 37 passed.
+- [x] Run `npm ci` and `npm test` on Node.js 24; 38 passed.
 - [ ] Try the offline demo and keep its fixture warning visible.
 - [ ] Configure approved billing, APIs, ADC/runtime identity and cost alerts.
 - [x] Test real Vision calls with two authorized synthetic images.
@@ -20,8 +20,8 @@
 - [ ] Test the public HTTPS application, a second image, required consent and validation failures (5 MiB, 25 MP, corrupt/unsupported/animated inputs).
 - [ ] Verify single-analysis concurrency and the 20-attempt/10-minute process allowance; retain the distinction from a hard cost cap.
 - [ ] Verify logs/metrics, resource use and cloud identity; `/health` alone is insufficient.
-- [ ] Add genuine screenshots and test dates/version to the wiki.
-- [ ] Finish Application, Demonstration, Explanation and State-of-the-System pages honestly, including known limitations.
+- [x] Add genuine screenshots and test dates/version to the wiki.
+- [x] Finish Application, Demonstration, Explanation and State-of-the-System pages honestly, including known limitations.
 - [ ] Review public-upload abuse risk and arrange cleanup after grading.
 
 ## Submit
@@ -31,3 +31,5 @@
 - [ ] Record the Canvas submission confirmation for the group.
 
 Deployment and real Vision checks are recorded in DEPLOYED.md. Source publication is complete. Actual GitHub wiki publication and public read access are complete. Group write access and Canvas submission are not claimed. Unchecked items remain for the group.
+
+2026-11-12: two real browser uploads passed after the origin fix; genuine before/after screenshots published. Remaining unchecked tests are optional hardening or unverified administrative items, not claims of failure. Canvas is handled separately and no submission is claimed here.

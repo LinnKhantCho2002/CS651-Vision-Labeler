@@ -39,10 +39,24 @@ These are the synthetic input images, not screenshots of the deployed applicatio
 6. Show rejection of an unsupported/corrupt or oversized input, then explain server-side validation.
 7. Show this repository, the wiki, and deployment evidence without exposing credentials or billing details.
 
-## Browser evidence and remaining work
+## Genuine deployed browser screenshots
 
-The deployed form displayed in Chrome on the Mac. The native file picker left Open disabled for a PNG; the selection was canceled and the browser upload is not counted as passed. A later attempt on 2026-11-10 reproduced this limitation. No deployed result screenshots, mobile-browser verification, or load/memory stress tests are claimed.
+On 2026-11-12, the deployed service `vision-labeler`, version `vision-20261112a` (source `f56c928`), passed genuine desktop Chromium form uploads using two synthetic, non-sensitive images. These were real Google Cloud Vision calls, not offline fixtures. The browser-origin defect was fixed using `Referrer-Policy: same-origin`; invalid and cross-origin requests remain rejected. All 38 automated tests and GitHub Actions passed.
 
-Still needed: genuine deployed home/result screenshots, a second browser result and a validation-error screenshot. Capture them from the real service, label their date and source image, and do not substitute offline output for real Vision evidence.
+### Before: upload form
 
-For an offline walkthrough, run `npm run demo`. Its fixture labels do not depend on image contents. Any screenshots from that mode must be labeled “offline demo, fixture labels.” See the [optional browser test instructions](https://github.com/LinnKhantCho2002/CS651-Vision-Labeler/blob/main/docs/VERIFICATION.md).
+![Deployed upload form](https://raw.githubusercontent.com/LinnKhantCho2002/CS651-Vision-Labeler/main/docs/evidence/browser/01-before.jpg)
+
+### After: landscape labels
+
+Source: `docs/evidence/sample-landscape.png`. Slope 79.3%, Graphics 64.4%, Summit 56.7%.
+
+![Real landscape labeling result](https://raw.githubusercontent.com/LinnKhantCho2002/CS651-Vision-Labeler/main/docs/evidence/browser/02-landscape-result.jpg)
+
+### After: second image, apple labels
+
+Source: `docs/evidence/live/test-apple.png`. Ten labels, including Fruit 98.8%, Produce 98.3%, Natural foods 97.9%, Red 97.8%, Apple 96.8%.
+
+![Real apple labeling result](https://raw.githubusercontent.com/LinnKhantCho2002/CS651-Vision-Labeler/main/docs/evidence/browser/03-apple-result.jpg)
+
+These are unaltered page screenshots captured from the live HTTPS app in desktop Chromium on 2026-11-12. The earlier native Mac picker limitation was avoided by the browser's supported upload interface. Mobile-browser, load/memory stress tests and a browser validation-error screenshot are not claimed. Earlier server validation checks remain documented above.
